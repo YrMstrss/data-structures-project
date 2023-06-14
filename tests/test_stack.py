@@ -27,3 +27,6 @@ class TestStack(unittest.TestCase):
         self.assertEqual(test_stack.pop(), 'data3')
         self.assertEqual(test_stack.top.data, 'data2')
         self.assertEqual(test_stack.top.next_node.data, 'data1')
+
+    def test_stack_str(self):
+        self.assertEqual(str(test_stack), "data3, data2, data1")
