@@ -19,6 +19,18 @@ class Queue:
         self.head = None
         self.tail = None
 
+    def __str__(self):
+        if self.head is None:
+            return ""
+        else:
+            result = [self.head.data]
+            while True:
+                if self.head.next_node.data is not None:
+                    result.append(self.head.next_node.data)
+                else:
+                    break
+            return '\n'.join(result)
+
     def enqueue(self, data):
         """
         Метод для добавления элемента в очередь
