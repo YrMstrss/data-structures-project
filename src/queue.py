@@ -28,10 +28,8 @@ class Queue:
         self.tail = Node(data, None)
         if self.head is None:
             self.head = Node(data, None)
-            # self.tail = self.head
         elif self.head.next_node is None:
             self.head = Node(self.head.data, Node(data, None))
-            # self.tail = Node(self.tail.next_node, Node(data, None))
         else:
             self.head = Node(self.head.data, Node(self.head.next_node.data, Node(data, None)))
 
