@@ -16,7 +16,8 @@ class Queue:
 
     def __init__(self):
         """Конструктор класса Queue"""
-        pass
+        self.head = None
+        self.tail = None
 
     def enqueue(self, data):
         """
@@ -24,7 +25,15 @@ class Queue:
 
         :param data: данные, которые будут добавлены в очередь
         """
-        pass
+        self.tail = Node(data, None)
+        if self.head is None:
+            self.head = Node(data, None)
+            # self.tail = self.head
+        elif self.head.next_node is None:
+            self.head = Node(self.head.data, Node(data, None))
+            # self.tail = Node(self.tail.next_node, Node(data, None))
+        else:
+            self.head = Node(self.head.data, Node(self.head.next_node.data, Node(data, None)))
 
     def dequeue(self):
         """
