@@ -24,9 +24,11 @@ class Queue:
             return ""
         else:
             result = [self.head.data]
+            data_writer = self.head.next_node
             while True:
-                if self.head.next_node.data is not None:
-                    result.append(self.head.next_node.data)
+                if data_writer is not None:
+                    result.append(data_writer.data)
+                    data_writer = data_writer.next_node
                 else:
                     break
             return '\n'.join(result)
@@ -37,13 +39,16 @@ class Queue:
 
         :param data: данные, которые будут добавлены в очередь
         """
-        self.tail = Node(data, None)
+        data_node = Node(data, None)
         if self.head is None:
-            self.head = Node(data, None)
+            self.head = data_node
+            self.tail = data_node
         elif self.head.next_node is None:
-            self.head = Node(self.head.data, Node(data, None))
+            self.tail = data_node
+            self.head.next_node = data_node
         else:
-            self.head = Node(self.head.data, Node(self.head.next_node.data, Node(data, None)))
+            self.tail.next_node = data_node
+            self.tail = data_node
 
     def dequeue(self):
         """
@@ -51,8 +56,4 @@ class Queue:
 
         :return: данные удаленного элемента
         """
-        pass
-
-    def __str__(self):
-        """Магический метод для строкового представления объекта"""
         pass
