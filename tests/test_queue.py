@@ -23,3 +23,10 @@ class TestQueue(unittest.TestCase):
         new_test_queue.enqueue('test_1')
         new_test_queue.enqueue('test_2')
         self.assertEqual(str(new_test_queue), "test_1\ntest_2")
+
+    def test_queue_dequeue(self):
+        self.assertEqual(test_queue.dequeue(), "test_1")
+        self.assertEqual(test_queue.dequeue(), "test_2")
+        self.assertEqual(test_queue.dequeue(), "test_3")
+        self.assertEqual(test_queue.dequeue(), "test_4")
+        self.assertIs(test_queue.dequeue(), None)
