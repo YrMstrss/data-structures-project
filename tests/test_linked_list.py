@@ -21,3 +21,15 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(test_linked_list.head.next_node.data, {'a': 1})
         self.assertEqual(test_linked_list.tail.data, {'a': 1})
 
+    def test_insert_at_end(self):
+        test_linked_list.insert_at_end({'a': 3})
+        self.assertEqual(test_linked_list.head.data, {'a': 3})
+        self.assertEqual(test_linked_list.tail.data, {'a': 3})
+        test_linked_list.insert_at_end({'a': 4})
+        self.assertEqual(test_linked_list.head.data, {'a': 3})
+        self.assertEqual(test_linked_list.tail.data, {'a': 4})
+        test_linked_list.insert_at_end({'a': 5})
+        self.assertEqual(test_linked_list.head.data, {'a': 3})
+        self.assertEqual(test_linked_list.head.next_node.data, {'a': 4})
+        self.assertEqual(test_linked_list.tail.data, {'a': 5})
+        self.assertEqual(test_linked_list.tail.next_node, None)
