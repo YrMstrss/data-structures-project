@@ -33,3 +33,11 @@ class TestLinkedList(unittest.TestCase):
         self.assertEqual(test_linked_list.head.next_node.data, {'a': 4})
         self.assertEqual(test_linked_list.tail.data, {'a': 5})
         self.assertEqual(test_linked_list.tail.next_node, None)
+
+    def test_str(self):
+        self.assertEqual(str(test_linked_list), 'None')
+        test_linked_list.insert_beginning({'a': 1})
+        test_linked_list.insert_beginning({'a': 2})
+        test_linked_list.insert_at_end({'a': 3})
+        test_linked_list.insert_at_end({'a': 4})
+        self.assertEqual(str(test_linked_list), "{'a': 2} -> {'a': 1} -> {'a': 3} -> {'a': 4} -> None")
