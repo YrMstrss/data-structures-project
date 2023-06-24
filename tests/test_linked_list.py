@@ -42,4 +42,4 @@ class TestLinkedList(unittest.TestCase):
         test_list_3.insert_beginning({'c': 2})
         test_list_3.insert_at_end({'c': 3})
         test_list_3.insert_at_end({'c': 4})
-        self.assertEqual(str(test_list_3), " {'c': 2} -> {'c': 1} -> {'c': 3} -> {'c': 4} -> None")
+        self.assertEqual(str(test_list_3), "{'c': 2} -> {'c': 1} -> {'c': 3} -> {'c': 4} -> None")
