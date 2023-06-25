@@ -52,3 +52,18 @@ class TestLinkedList(unittest.TestCase):
         test_list_4.insert_at_end({'d': 3})
         test_list_4.insert_at_end({'d': 4})
         self.assertEqual(test_list_4.to_list(), [{'d': 2}, {'d': 1}, {'d': 3}, {'d': 4}])
+
+    def test_get_data_by_id(self):
+        test_list_5 = LinkedList()
+        test_list_5.insert_beginning({'id': 1, 'e': 'test_1'})
+        test_list_5.insert_beginning({'id': 2, 'e': 'test_2'})
+        test_list_5.insert_at_end({'id': 3, 'e': 'test_3'})
+        test_list_5.insert_at_end({'id': 4, 'e': 'test_4'})
+        self.assertEqual(test_list_5.get_data_by_id(2), {'id': 2, 'e': 'test_2'})
+        self.assertEqual(test_list_5.get_data_by_id(4), {'id': 4, 'e': 'test_4'})
+        # test_list_5.insert_at_end({'id': 6, 'e': 'test_6'})
+        # test_list_5.insert_at_end({'e': 'test_7'})
+        # test_list_5.insert_at_end('test_8')
+        # self.assertRaises(TypeError, test_list_5.get_data_by_id(5))
+        # self.assertRaises(test_list_5.get_data_by_id(7), TypeError)
+        # self.assertRaises(test_list_5.get_data_by_id(8), TypeError)
