@@ -1,5 +1,6 @@
 class Node:
     """Класс для узла односвязного списка"""
+
     def __init__(self, data, next_node):
         self.data = data
         self.next_node = next_node
@@ -7,6 +8,7 @@ class Node:
 
 class LinkedList:
     """Класс для односвязного списка"""
+
     def __init__(self):
         self.head = None
         self.tail = None
@@ -48,3 +50,16 @@ class LinkedList:
 
         ll_string += 'None'
         return ll_string
+
+    def to_list(self):
+        """Возвращает список с данными, содержащимися в односвязном списке"""
+        node = self.head
+        if node is None:
+            return []
+
+        ll_list = []
+        while node:
+            ll_list.append(node.data)
+            node = node.next_node
+
+        return ll_list
