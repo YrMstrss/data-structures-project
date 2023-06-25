@@ -15,7 +15,7 @@ class LinkedList:
         """Принимает данные (словарь) и добавляет узел с этими данными в начало связанного списка"""
         if self.head == self.tail is None:
             self.head = Node(data, None)
-            self.tail = Node(data, None)
+            self.tail = self.head
         else:
             self.head = Node(data, self.head)
 
@@ -31,7 +31,8 @@ class LinkedList:
             self.head.next_node = new_node
             self.tail = new_node
         else:
-            self.tail.next_node = new_node
+            current_tail = self.tail
+            current_tail.next_node = new_node
             self.tail = new_node
 
     def __str__(self) -> str:
